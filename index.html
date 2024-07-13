@@ -6,153 +6,174 @@
     <title>Ficha de Inscrição - 3º Terral da Canção Gaúcha</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --lt-color-gray-100: #f8f9fc;
-            --lt-color-gray-200: #f1f3f9;
-            --lt-color-gray-300: #dee3ed;
-            --lt-color-gray-400: #c2c9d6;
-            --lt-color-gray-500: #8f96a3;
-            --lt-color-gray-600: #5e636e;
-            --lt-color-gray-700: #2f3237;
-            --lt-color-gray-800: #1d1e20;
-            --lt-color-gray-900: #111213;
-            --lt-shadow-default: 0 2px 6px -1px rgba(0, 0, 0, 0.16), 0 1px 4px -1px rgba(0, 0, 0, 0.04);
-            --lt-shadow-active: 0 0 8px -2px rgba(0, 0, 0, 0.1), 0 6px 20px -3px rgba(0, 0, 0, 0.2);
-            --lt-color-white: #fff;
-            --lt-color-black: #111213;
-            --lt-color-transparent: rgba(255, 255, 255, 0);
-            --lt-color-background-light: var(--lt-color-gray-100);
-            --lt-color-background-default: var(--lt-color-gray-200);
-            --lt-color-background-dark: var(--lt-color-gray-300);
-            --lt-color-border-light: var(--lt-color-gray-200);
-            --lt-color-border-default: var(--lt-color-gray-300);
-            --lt-color-border-dark: var(--lt-color-gray-400);
-            --lt-color-text-very-light: var(--lt-color-gray-500);
-            --lt-color-text-light: var(--lt-color-gray-600);
-            --lt-color-text-default: var(--lt-color-gray-700);
-            --lt-color-text-dark: var(--lt-color-gray-800);
-            --lt-color-overlay-default: #fff;
-            --lt-color-overlay-dark: #fff;
-            --lt-color-overlay-transparent: rgba(0, 0, 0, 0.1);
-            --lt-shadow-website-overlay: 0 0 7px 0 rgba(0, 0, 0, 0.3);
-        }
+        /* reset */
+        html { box-sizing: border-box; font-size: 10px; }
+        *, *:before, *:after { box-sizing: inherit; }
+        body, ul, li  { margin: 0; padding: 0; }
+        li { list-style: none; }
+        p, h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+        a { text-decoration: none; }
+        input { border-style: none; background: transparent; outline: none; }
+        button { padding: 0; background: none; border: none; outline: none; }
 
+        /* some basic page styles */
         body {
-            font-family: "Source Sans Pro", sans-serif;
-            font-weight: 400;
-            background-color: var(--lt-color-background-light);
-            color: var(--lt-color-text-default);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+            color: #f5f6ff;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             min-height: 100vh;
-            margin: 0;
-            text-size-adjust: 100%;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            -webkit-font-smoothing: auto;
-            box-sizing: border-box;
         }
-        .container {
-            background-color: var(--lt-color-white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: var(--lt-shadow-default);
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-        }
+
         h2 {
             text-align: center;
-            margin-bottom: 20px;
-            color: var(--lt-color-text-dark);
+            font-size: 2rem; /* Reduz o tamanho da fonte */
+            font-weight: normal;
+            margin-bottom: 1rem;
         }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 600px;
+            padding: 2rem;
+            margin: 0 auto;
+            background: rgba(57, 63, 84, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.16), 0 1px 4px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        .section {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem; /* Reduz o tamanho da fonte */
+            font-weight: bold;
+            color: #BFD2FF;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .instructions {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background: rgba(57, 63, 84, 0.8);
+            color: #BFD2FF;
+            font-size: 1.4rem; /* Reduz o tamanho da fonte */
+        }
+
         .form-group {
             margin-bottom: 15px;
             position: relative;
+            width: 100%;
         }
+
         .form-group label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: var(--lt-color-text-dark);
+            color: #f5f6ff;
+            font-size: 1.4rem; /* Reduz o tamanho da fonte */
         }
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group input[type="number"],
-        .form-group input[type="file"] {
+
+        .webflow-style-input {
+            position: relative;
             width: 100%;
-            padding: 10px;
-            border: 1px solid var(--lt-color-border-default);
-            border-radius: 5px;
-            box-sizing: border-box;
-            box-shadow: var(--lt-shadow-default);
-            padding-left: 35px;
-            color: var(--lt-color-text-dark);
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 2px;
+            padding: 1rem 1.6rem 1.2rem; /* Ajusta o espaçamento interno */
+            background: rgba(57, 63, 84, 0.8);
         }
-        .form-group i {
+
+        .webflow-style-input input {
+            width: 100%;
+            color: #BFD2FF;
+            font-size: 1.4rem; /* Reduz o tamanho da fonte */
+            line-height: 1.8rem; /* Reduz a altura da linha */
+            vertical-align: middle;
+            border: none;
+            background: transparent;
+        }
+
+        .webflow-style-input i {
             position: absolute;
             top: 50%;
             left: 10px;
             transform: translateY(-50%);
-            color: var(--lt-color-gray-600);
+            color: #7881A1;
         }
-        .form-group input[type="file"] {
-            padding-left: 10px;
+
+        .webflow-style-input input::placeholder {
+            color: #7881A1;
         }
+
+        .webflow-style-input:after {
+            content: "";
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            z-index: 999;
+            height: 2px;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+            background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+            background-size: 500% auto;
+            animation: gradient 3s linear infinite;
+        }
+
         .submit-btn {
             width: 100%;
-            padding: 10px;
-            border: none;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 1rem;
             border-radius: 5px;
-            background-color: var(--lt-color-gray-700);
-            color: var(--lt-color-white);
-            font-size: 16px;
+            background: #394b5f;
+            color: #fff;
+            font-size: 1.4rem; /* Reduz o tamanho da fonte */
             cursor: pointer;
-            box-shadow: var(--lt-shadow-active);
             transition: background-color 0.3s ease;
         }
+
         .submit-btn:hover {
-            background-color: var(--lt-color-gray-600);
+            background-color: #252736;
         }
-        .instructions {
-            margin-bottom: 20px;
-            background-color: var(--lt-color-background-dark);
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: var(--lt-shadow-default);
-            color: var(--lt-color-text-very-light);
-        }
-        .instructions p {
-            margin: 0;
-            padding: 0;
-        }
+
         footer {
             background-color: #394b5f;
-            color: var(--lt-color-white);
+            color: #fff;
             text-align: center;
             padding: 10px;
             position: fixed;
             width: 100%;
             bottom: 0;
         }
+
+        @keyframes gradient { 
+            0%{background-position:0 0}
+            100%{background-position:100% 0}
+        }
+
         @media (max-width: 600px) {
             .container {
-                margin: 10px;
-                padding: 15px;
+                padding: 1rem;
+            }
+            .webflow-style-input {
+                padding: 0.8rem 1.2rem 1rem; /* Ajusta o espaçamento interno para dispositivos móveis */
             }
             .submit-btn {
-                padding: 15px;
-                font-size: 14px;
-            }
-            .form-group input[type="text"],
-            .form-group input[type="email"],
-            .form-group input[type="tel"],
-            .form-group input[type="number"],
-            .form-group input[type="file"] {
-                padding-left: 10px;
-            }
-            .form-group i {
-                left: 5px;
+                padding: 1rem; /* Ajusta o padding do botão para dispositivos móveis */
             }
         }
     </style>
@@ -160,50 +181,65 @@
 <body>
     <div class="container">
         <h2>Ficha de Inscrição - 3º Terral da Canção Gaúcha</h2>
-        <div class="instructions">
-            <p>Somente serão aceitas 03 (três) músicas por AUTOR, caso ultrapasse serão eliminadas as inscrições que passarem esse número.</p>
-            <p>Os arquivos anexados (Letra e Áudio), devem ter o mesmo nome da LETRA na inscrição.</p>
-            <p>Cuidado no formato correto do número de telefone e CPF para que o sistema possa aceitar.</p>
-            <p>Coloque corretamente seu telefone e seu e-mail para que possamos retornar para sanar possíveis dúvidas ou casos de arquivo corrompido.</p>
-            <p>Todos os campos são obrigatórios com exceção dos segundos autores de letra e música caso haja, mas a omissão dos mesmos será de responsabilidade de quem enviou.</p>
-            <p>Após a data de encerramento não serão aceitas inscrições e o formulário será bloqueado.</p>
-        </div>
-        <form>
+        
+        <!-- Autoria -->
+        <section class="section">
+            <div class="section-title">Autoria</div>
+            
+            <!-- Autores da Letra -->
+            <div class="section-title">Autores da Letra</div>
             <div class="form-group">
-                <label for="nome"><i class="fas fa-user"></i> Nome do Autor</label>
-                <input type="text" id="nome" name="nome" required>
+                <label for="nome-autor-letra"><i class="fas fa-user"></i> 1º Autor da Letra</label>
+                <div class="webflow-style-input">
+                    <input type="text" id="nome-autor-letra" name="nome-autor-letra" required placeholder="Digite o nome do autor da letra">
+                </div>
             </div>
             <div class="form-group">
-                <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
-                <input type="email" id="email" name="email" required>
+                <label for="segundo-autor-letra"><i class="fas fa-user"></i> 2º Autor da Letra (opcional)</label>
+                <div class="webflow-style-input">
+                    <input type="text" id="segundo-autor-letra" name="segundo-autor-letra" placeholder="Digite o nome do segundo autor da letra">
+                </div>
+            </div>
+            
+            <!-- Autores da Melodia -->
+            <div class="section-title">Autores da Melodia</div>
+            <div class="form-group">
+                <label for="nome-autor-melodia"><i class="fas fa-user"></i> 1º Autor da Melodia</label>
+                <div class="webflow-style-input">
+                    <input type="text" id="nome-autor-melodia" name="nome-autor-melodia" required placeholder="Digite o nome do autor da melodia">
+                </div>
             </div>
             <div class="form-group">
-                <label for="telefone"><i class="fas fa-phone"></i> Telefone</label>
-                <input type="tel" id="telefone" name="telefone" required pattern="\d{2} \d{5}-\d{4}" placeholder="XX XXXXX-XXXX">
+                <label for="segundo-autor-melodia"><i class="fas fa-user"></i> 2º Autor da Melodia (opcional)</label>
+                <div class="webflow-style-input">
+                    <input type="text" id="segundo-autor-melodia" name="segundo-autor-melodia" placeholder="Digite o nome do segundo autor da melodia">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="cpf"><i class="fas fa-id-card"></i> CPF</label>
-                <input type="number" id="cpf" name="cpf" required pattern="\d{11}" placeholder="Apenas números">
-            </div>
-            <div class="form-group">
-                <label for="segundo-autor-letra"><i class="fas fa-user"></i> Segundo Autor da Letra (opcional)</label>
-                <input type="text" id="segundo-autor-letra" name="segundo-autor-letra">
-            </div>
-            <div class="form-group">
-                <label for="segundo-autor-musica"><i class="fas fa-user"></i> Segundo Autor da Música (opcional)</label>
-                <input type="text" id="segundo-autor-musica" name="segundo-autor-musica">
-            </div>
+        </section>
+        
+        <!-- Dados da Composição -->
+        <hr>
+        <section class="section">
+            <div class="section-title">Dados da Composição</div>
             <div class="form-group">
                 <label for="audio"><i class="fas fa-music"></i> Upload do arquivo de áudio</label>
-                <input type="file" id="audio" name="audio" accept="audio/*" required>
+                <div class="webflow-style-input">
+                    <input type="file" id="audio" name="audio" accept="audio/*" required>
+                </div>
             </div>
             <div class="form-group">
                 <label for="letra"><i class="fas fa-file-alt"></i> Upload da letra</label>
-                <input type="file" id="letra" name="letra" accept=".txt, .pdf, .doc, .docx" required>
+                <div class="webflow-style-input">
+                    <input type="file" id="letra" name="letra" accept=".txt, .pdf, .doc, .docx" required>
+                </div>
             </div>
-            <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Enviar</button>
-        </form>
+        </section>
+
+        <!-- Botão de Envio -->
+        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Enviar</button>
     </div>
+
+    <!-- Rodapé -->
     <footer>
         &copy; 2024 3º Terral da Canção Gaúcha
     </footer>
